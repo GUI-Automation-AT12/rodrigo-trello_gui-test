@@ -4,10 +4,7 @@ import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
-import todoly.ui.BaseLogin;
 
 public class TrelloTest {
     private WebDriver driver;

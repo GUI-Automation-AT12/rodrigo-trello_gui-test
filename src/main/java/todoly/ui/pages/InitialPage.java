@@ -1,4 +1,4 @@
-package todoly.ui;
+package todoly.ui.pages;
 
 import core.selenium.WebDriverManager;
 import core.selenium.config.EnvironmentProperties;

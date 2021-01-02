@@ -1,6 +1,6 @@
 package core.selenium.config;
 
-public class EnvironmentProperties extends Environment {
+public class EnvironmentProperties extends PropertiesReader {
     private static final String GRADLE_FILE = "gradle.properties";
     private static EnvironmentProperties environment;
     /**

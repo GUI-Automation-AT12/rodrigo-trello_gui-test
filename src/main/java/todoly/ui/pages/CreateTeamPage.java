@@ -1,4 +1,4 @@
-package todoly.ui;
+package todoly.ui.pages;
 
 public class CreateTeamPage {
 }
