@@ -1,6 +1,6 @@
 package core.selenium.config;
 
-public final class WebDriverEnvironment extends Environment {
+public final class WebDriverEnvironment extends PropertiesReader {
     private static final String GRADLE_FILE = "chromeWebDiver.properties";
     private static WebDriverEnvironment environment;
     /**

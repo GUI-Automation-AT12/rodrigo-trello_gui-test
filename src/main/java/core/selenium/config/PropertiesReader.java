@@ -8,7 +8,7 @@ import java.util.Properties;
 /**
  * PropertiesReader class.
  */
-public class Environment {
+public class PropertiesReader {
     private Properties property;
     private FileReader reader;
 
@@ -17,7 +17,7 @@ public class Environment {
      *
      * @param propertiesPath
      */
-    public Environment(final String propertiesPath) {
+    public PropertiesReader(final String propertiesPath) {
         try {
             reader = new FileReader(propertiesPath);
             property = new Properties();
