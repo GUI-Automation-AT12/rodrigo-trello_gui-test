@@ -1,34 +1,25 @@
 package core.selenium.config;
 
 public final class WebDriverEnvironment extends PropertiesReader {
-    private static final String GRADLE_FILE = "chromeWebDiver.properties";
     private static WebDriverEnvironment environment;
     /**
      * Initializes an instance of properties files.
      */
-    private WebDriverEnvironment() {
-        super(GRADLE_FILE);
+    private WebDriverEnvironment(final String path) {
+        super(path);
     }
 
     /**
      * Gets a singleton instance of the WebDriverEnvironment.
      * @return WebDriverEnvironment instance.
      */
-    public static WebDriverEnvironment getInstance() {
+    public static WebDriverEnvironment getInstance(final String path) {
         if (environment == null) {
-            environment = new WebDriverEnvironment();
+            environment = new WebDriverEnvironment(path);
         }
         return environment;
     }
 
-    /**
-     * get the BaseUrl from the file.properties.
-     *
-     * @return base url.
-     */
-    public String getDriverChromePath() {
-        return getEnvProperty("driverChromePath");
-    }
 
     /**
      * get the implicitTime from the file.properties.

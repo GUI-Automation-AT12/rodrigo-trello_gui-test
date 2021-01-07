@@ -1,4 +1,4 @@
-package todoly.entities;
+package trello.entities;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,6 +1,6 @@
-package todoly.entities;
+package trello.entities;
 
-import todoly.ui.StringUtils;
+import trello.ui.StringUtils;
 
 public class Board {
 

@@ -1,4 +1,4 @@
-package todoly.ui.pages;
+package trello.ui.pages;
 
 public class BoardConfigurationPage {
 }

@@ -1,4 +1,4 @@
-package todoly.ui;
+package trello.ui;
 
 import java.text.Normalizer;
 import java.util.Locale;

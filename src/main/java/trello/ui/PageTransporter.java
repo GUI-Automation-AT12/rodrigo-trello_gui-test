@@ -1,5 +1,4 @@
-package todoly.ui;
-
+package trello.ui;
 
 import core.selenium.WebDriverManager;
 import core.selenium.config.EnvironmentProperties;
@@ -14,9 +13,9 @@ import java.util.HashMap;
 public final class PageTransporter {
     private static final HashMap<String, String> PAGE_URL = new HashMap<>();
     static {
-        PAGE_URL.put("LOGIN", "/login");
-        PAGE_URL.put("HOME", "/home");
-        PAGE_URL.put("BOARD", "/boards");
+        PAGE_URL.put("LOGIN", "login");
+        PAGE_URL.put("HOME", "home");
+        PAGE_URL.put("BOARD", "boards");
     }
 
     private PageTransporter() {

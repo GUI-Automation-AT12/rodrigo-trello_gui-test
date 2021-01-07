@@ -28,23 +28,18 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
-    testImplementation("io.github.bonigarcia:webdrivermanager:4.2.2")
+    testImplementation group: 'io.cucumber', name: 'cucumber-testng', version: '6.0.0'
+    compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.8.0'
     compile group: 'io.cucumber', name: 'cucumber-testng', version: '5.7.0'
-    // implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
-    implementation 'org.seleniumhq.selenium:selenium-chrome-driver:3.141.59'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java',
             version: '3.141.59'
-    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
     compile group: 'io.cucumber', name: 'cucumber-java', version: '5.6.0'
-    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
     testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '5.6.0'
-    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest
     testCompile group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
     //allure reports
     testImplementation group: 'io.qameta.allure', name: 'allure-cucumber6-jvm', version: '2.13.6'
-
-    // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.0.0'
 }
 
 checkstyle {

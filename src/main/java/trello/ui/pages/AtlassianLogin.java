@@ -1,31 +1,37 @@
-package todoly.ui.pages;
+package trello.ui.pages;
 
 import core.selenium.config.EnvironmentProperties;
 import core.selenium.utils.WebDriverHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AtlassianLogin {
+public class AtlassianLogin extends InitialPage{
     @FindBy(id = "password")
-    WebElement password;
+    private WebElement password;
 
     @FindBy(id = "login-submit")
-    WebElement loginSubmit;
+    private WebElement loginSubmit;
 
     public AtlassianLogin() {
+        WebDriverHelper.waitUntil(loginSubmit);
+    }
+
+    @Override
+    protected void waitForElement(WebElement webElement) {
+
     }
 
     /**
      * Set password
      */
-    private void setPassword(){
+    public void setPassword(){
         WebDriverHelper.setElement(password, EnvironmentProperties.getInstance().getPassword());
     }
 
     /**
      * click on login button
      */
-    private void tryLogin(){
+    public void tryLogin(){
         WebDriverHelper.clickElement(loginSubmit);
     }
 }

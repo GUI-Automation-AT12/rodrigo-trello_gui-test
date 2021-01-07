@@ -65,4 +65,14 @@ public class EnvironmentProperties extends PropertiesReader {
     public String getCucumberThreadCount() {
         return getEnvProperty("cucumberThreadCount");
     }
+
+    /**
+     * get the browser from the file.properties.
+     *
+     * @return browser value.
+     */
+    public String getBrowser() {
+        return getEnvProperty("browser");
+    }
+
 }

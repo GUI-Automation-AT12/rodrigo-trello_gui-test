@@ -1,4 +1,4 @@
-package todoly.ui.pages;
+package trello.ui.pages;
 
 import core.selenium.WebDriverManager;
 import core.selenium.config.EnvironmentProperties;
@@ -18,12 +18,7 @@ public abstract class InitialPage {
     public InitialPage() {
         this.webDriver = WebDriverManager.getInstance().getWebDriver();
         this.webDriverWait = WebDriverManager.getInstance().getWebDriverWait();
-        setBaseUrl();
         PageFactory.initElements(this.webDriver, this);
-    }
-
-    public void setBaseUrl() {
-        webDriver.get(EnvironmentProperties.getInstance().getBaseUrl());
     }
 
     protected abstract void waitForElement(final WebElement webElement);

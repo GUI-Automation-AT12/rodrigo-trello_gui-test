@@ -1,9 +1,12 @@
+import core.selenium.WebDriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import todoly.context.Context;
-import todoly.ui.PageTransporter;
+import trello.context.Context;
+import trello.ui.PageTransporter;
+import trello.ui.pages.HomePage;
+import trello.ui.pages.Login;
 
 public class TeamStepdefs {
 
@@ -13,10 +16,6 @@ public class TeamStepdefs {
         this.context = context;
     }
 
-    @Given("I log in to Trello with Editable User credentials")
-    public void iLogInToTrelloWithEditableUserCredentials() {
-        
-    }
 
     @When("I navigate to my team account page")
     public void iNavigateToMyTeamAccountPage() {
@@ -36,5 +35,12 @@ public class TeamStepdefs {
     @And("The url should be updated in the browser")
     public void theUrlShouldBeUpdatedInTheBrowser() {
 
+    }
+
+    @When("I open the create team form")
+    public void iOpenTheCreateTeamForm() {
+        HomePage home = new HomePage();
+        home.clickCreateTeam();
+        WebDriverManager.getInstance().quitWebDriver();
     }
 }

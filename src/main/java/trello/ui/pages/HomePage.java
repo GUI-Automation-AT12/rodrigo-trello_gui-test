@@ -1,11 +1,11 @@
-package todoly.ui.pages;
+package trello.ui.pages;
 
 import core.selenium.config.EnvironmentProperties;
 import core.selenium.utils.WebDriverHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage {
+public class HomePage extends InitialPage{
 
     @FindBy(xpath = "(//nav[@class='home-left-sidebar-container']/div/ul/li)[last()-1]")
     WebElement boardsOption;
@@ -16,8 +16,17 @@ public class HomePage {
     @FindBy(xpath = "(//nav[@class='home-left-sidebar-container']/div/ul/li)[last()]")
     WebElement startOption;
 
+    @FindBy(css = "div#content button[data-test-id='home-navigation-create-team-button']")
+    WebElement createTeamButton;
+
 
     public HomePage() {
+        WebDriverHelper.waitUntil(createTeamButton);
+    }
+
+    @Override
+    protected void waitForElement(WebElement webElement) {
+
     }
 
     /**
@@ -39,5 +48,12 @@ public class HomePage {
      */
     private void clickStartOption(){
         WebDriverHelper.clickElement(startOption);
+    }
+
+    /**
+     *
+     */
+    public void clickCreateTeam() {
+        WebDriverHelper.clickElement(createTeamButton);
     }
 }

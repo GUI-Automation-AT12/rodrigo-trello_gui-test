@@ -1,11 +1,13 @@
 package trello.ui.pages;
 
+import core.selenium.WebDriverManager;
 import core.selenium.config.EnvironmentProperties;
 import core.selenium.utils.WebDriverHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import trello.ui.PageTransporter;
 
-public class BaseLogin extends InitialPage{
+public class Login extends InitialPage{
 
     @FindBy(id = "user")
     WebElement user;
@@ -16,7 +18,12 @@ public class BaseLogin extends InitialPage{
     @FindBy(id = "login")
     WebElement loginButton;
 
-    public BaseLogin() {
+    public Login() {
+        WebDriverManager.getInstance().getWebDriver().navigate().to("https://trello.com/");
+        PageTransporter.navigateToPage("login");
+        setUser();
+        setPassword();
+        tryLogin();
     }
 
     /**

@@ -1,25 +1,31 @@
 package core.selenium;
 
+import core.selenium.WebBrowsers.FactoryBrowserDriver;
+import core.selenium.config.EnvironmentProperties;
 import core.selenium.config.WebDriverEnvironment;
-import core.selenium.utils.WebDriverStarter;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
 public final class WebDriverManager {
     private static WebDriverManager webDriverManager;
-    private  WebDriverStarter webDriverStarter;
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
 
     private WebDriverManager() {
-        webDriverStarter = new WebDriverStarter();
-        webDriver = new ChromeDriver();
+        webDriver = FactoryBrowserDriver.getBrowser();
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(Integer.parseInt(WebDriverEnvironment.getInstance().getImplicitTime()), TimeUnit.SECONDS);
-        webDriverWait =  new WebDriverWait(webDriver, Integer.parseInt(WebDriverEnvironment.getInstance().getExplicitTime()));
+        webDriver.manage().timeouts().implicitlyWait(Integer.parseInt(
+                WebDriverEnvironment.getInstance(
+                        WebDriverConfig.getInstance().getBrowserConfig().get(EnvironmentProperties.getInstance().getBrowser())
+                ).getImplicitTime()),
+                TimeUnit.SECONDS);
+        webDriverWait = new WebDriverWait(webDriver, Integer.parseInt(
+                WebDriverEnvironment.getInstance(
+                        WebDriverConfig.getInstance().getBrowserConfig().get(EnvironmentProperties.getInstance().getBrowser())
+                ).getExplicitTime())
+        );
     }
 
     /**
@@ -39,5 +45,11 @@ public final class WebDriverManager {
 
     public  WebDriver getWebDriver() {
         return webDriver;
+    }
+
+    public void quitWebDriver()
+    {
+        webDriver.quit();
+        webDriverManager =  null;
     }
 }

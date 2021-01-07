@@ -1,7 +1,9 @@
+import core.selenium.WebDriverManager;
+import core.selenium.utils.WebDriverHelper;
 import io.cucumber.java.en.Given;
-import todoly.context.Context;
-import todoly.ui.pages.AtlassianLogin;
-import todoly.ui.pages.BaseLogin;
+import trello.context.Context;
+import trello.ui.pages.AtlassianLogin;
+import trello.ui.pages.Login;
 
 public class LoginStepdefs {
 
@@ -11,9 +13,11 @@ public class LoginStepdefs {
         this.context = context;
     }
 
-    @Given("I am logged with valid credentials")
-    public void iAmLoggedWithValidCredentials() {
-        BaseLogin baseLogin = new BaseLogin();
-        AtlassianLogin atLogin = new AtlassianLogin();
+    @Given("I log in to Trello with valid User credentials")
+    public void iLogInToTrelloWithValidUserCredentials() {
+        Login login = new Login();
+        AtlassianLogin atlassianLogin = new AtlassianLogin();
+        atlassianLogin.setPassword();
+        atlassianLogin.tryLogin();
     }
 }
