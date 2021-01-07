@@ -2,10 +2,10 @@
 Feature: Create a new team
 
   Background: Sets authentication
-    Given I am logged with valid credentials
+    Given I log in to Trello with valid User credentials
 
   Scenario: Create a team in my team section
-    When I navigate to my home page
+    When I open the create team form
     And I put the following information on create team section
       | name           |  at14          |
       | Type of team   |  Educacion     |

@@ -1,5 +1,6 @@
 package core.selenium.config;
 
+import javax.management.RuntimeErrorException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -23,9 +24,9 @@ public class PropertiesReader {
             property = new Properties();
             property.load(reader);
         } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
         } finally {
             closeReader();
         }
