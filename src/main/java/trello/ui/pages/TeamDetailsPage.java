@@ -18,7 +18,6 @@ public class TeamDetailsPage {
     @FindBy(id = "desc")
     WebElement desc;
 
-
     public TeamDetailsPage() {
     }
 

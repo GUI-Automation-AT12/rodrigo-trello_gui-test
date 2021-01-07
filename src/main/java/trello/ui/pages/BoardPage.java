@@ -10,7 +10,7 @@ public class BoardPage {
     WebElement addList;
 
     @FindBy(xpath = "(//a[@class='open-card-composer js-open-card-composer'])[last()]")
-    WebElement AddCard;
+    WebElement addCard;
 
     @FindBy(xpath = "//span[@id='workspaces-preamble-invite-button']//a")
     WebElement inviteButton;
@@ -32,8 +32,8 @@ public class BoardPage {
     /**
      * add a new card.
      */
-    private void AddCard(){
-        WebDriverHelper.clickElement(AddCard);
+    private void addCard(){
+        WebDriverHelper.clickElement(addCard);
     }
 
     /**

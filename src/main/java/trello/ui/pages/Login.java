@@ -1,4 +1,4 @@
-package todoly.ui.pages;
+package trello.ui.pages;
 
 import core.selenium.config.EnvironmentProperties;
 import core.selenium.utils.WebDriverHelper;
@@ -17,32 +17,28 @@ public class BaseLogin extends InitialPage{
     WebElement loginButton;
 
     public BaseLogin() {
-        setUser();
-        setPassword();
-        tryLogin();
     }
 
     /**
      * Set user
      */
-    private void setUser(){
+    public void setUser(){
         WebDriverHelper.setElement(user, EnvironmentProperties.getInstance().getUsername());
     }
 
     /**
      * Set password
      */
-    private void setPassword(){
+    public void setPassword(){
         WebDriverHelper.setElement(password, EnvironmentProperties.getInstance().getPassword());
     }
 
     /**
      * click on login button
      */
-    private void tryLogin(){
+    public void tryLogin(){
         WebDriverHelper.clickElement(loginButton);
     }
-
 
     @Override
     protected void waitForElement(WebElement webElement) {
