@@ -18,17 +18,17 @@ public abstract class InitialPage {
     public InitialPage() {
         this.webDriver = WebDriverManager.getInstance().getWebDriver();
         this.webDriverWait = WebDriverManager.getInstance().getWebDriverWait();
-        //PageFactory.initElements(this.webDriver, this);
         setBaseUrl();
+        PageFactory.initElements(this.webDriver, this);
     }
 
     public void setBaseUrl() {
         webDriver.get(EnvironmentProperties.getInstance().getBaseUrl());
     }
 
-    protected  abstract void waitForElement(final WebElement webElement);
+    protected abstract void waitForElement(final WebElement webElement);
 
-    public void openLogin () {
+    public void openLogin() {
         WebDriverHelper.clickElement(loginButton);
     }
 }

@@ -13,8 +13,6 @@ public class AtlassianLogin {
     WebElement loginSubmit;
 
     public AtlassianLogin() {
-        setPassword();
-        tryLogin();
     }
 
     /**
