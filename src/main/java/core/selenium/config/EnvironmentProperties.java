@@ -35,24 +35,6 @@ public class EnvironmentProperties extends PropertiesReader {
      *
      * @return schemasPath value.
      */
-    public String getUsername() {
-        return getEnvProperty("username");
-    }
-
-    /**
-     * get the cucumberThreadCount from the file.properties.
-     *
-     * @return cucumberThreadCount value.
-     */
-    public String getPassword() {
-        return getEnvProperty("password");
-    }
-
-    /**
-     * get the schemasPath from the file.properties.
-     *
-     * @return schemasPath value.
-     */
     public String getFilterTags() {
         return getEnvProperty("filterTags");
     }

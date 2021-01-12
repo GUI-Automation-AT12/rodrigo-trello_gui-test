@@ -1,15 +1,26 @@
 package trello.entities;
 
+import trello.ui.pages.InitialPage;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class Team {
+public class Team extends InitialPage {
 
+    private String id;
     private String name;
     private String typeOfTeam;
     private String shortName;
     private String website;
     private String description;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(final String id) {
+        this.id = id;
+    }
 
     /**
      * Gets name of the team.
@@ -92,14 +103,16 @@ public class Team {
     }
 
     /**
-     * Gets team as map.
-     * @return a entities team with as map.
+     * Get team as a map.
+     * @return entity team as a map.
      */
     public Map<String, String> getTeamAsMap() {
         Map userInfoMap = new HashMap<String, String>();
         userInfoMap.put("Name", getName());
         userInfoMap.put("Type", getTypeOfTeam());
         userInfoMap.put("Description", getDescription());
+        userInfoMap.put("Website", getWebsite());
+        userInfoMap.put("Short Name", getShortName());
         return userInfoMap;
     }
 
@@ -122,6 +135,8 @@ public class Team {
         strategyMap.put("Name", () -> setName(teamInformation.get("Name")));
         strategyMap.put("Type", () -> setTypeOfTeam(teamInformation.get("Type")));
         strategyMap.put("Description", () -> setDescription(teamInformation.get("Description")));
+        strategyMap.put("Website", () -> setWebsite(teamInformation.get("Website")));
+        strategyMap.put("Short Name", () -> setShortName(teamInformation.get("Short Name")));
         return strategyMap;
     }
 }

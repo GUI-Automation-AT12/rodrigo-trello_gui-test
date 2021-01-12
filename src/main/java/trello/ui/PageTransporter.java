@@ -32,14 +32,26 @@ public final class PageTransporter {
 
     /**
      * Navigate to URL.
+     * @param account
+     */
+    public static void navigateToAccount(final String account) {
+        navigateToUrl(EnvironmentProperties.getInstance().getBaseUrl().concat(account));
+    }
+
+    /**
+     * Navigate to URL.
      * @param url
      */
-    private static void navigateToUrl(final String url) {
+    public static void navigateToUrl(final String url) {
         try {
             WebDriverManager.getInstance().getWebDriver().navigate().to(new URL(url));
         } catch (MalformedURLException e) {
             e.printStackTrace();
             throw new NullPointerException("This url is invalid: " + e.getMessage());
         }
+    }
+
+    public static String getActualUrl() {
+        return WebDriverManager.getInstance().getWebDriver().getCurrentUrl();
     }
 }

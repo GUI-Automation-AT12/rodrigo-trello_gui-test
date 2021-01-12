@@ -1,6 +1,5 @@
 package core.selenium.config;
 
-import javax.management.RuntimeErrorException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
