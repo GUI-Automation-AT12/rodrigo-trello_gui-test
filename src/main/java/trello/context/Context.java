@@ -3,6 +3,7 @@ package trello.context;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import trello.entities.Board;
 import trello.entities.Team;
 
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.util.*;
 public class Context {
 
     private Team team;
+    private Board board;
     private Map<String, String> data;
     private Map<String, Map<String, String>> mapData;
     private ObjectMapper map;
@@ -102,7 +104,7 @@ public class Context {
     }
 
     /**
-     *
+     *This method returns the Team entity.
      * @return
      */
     public Team getTeam() {
@@ -110,10 +112,26 @@ public class Context {
     }
 
     /**
-     *
+     *This method sets the Team entity.
      * @param team
      */
     public void setTeam(Team team) {
         this.team =  team;
+    }
+
+    /**
+     *This method returns the Board entity.
+     * @return
+     */
+    public Board getBoard() {
+        return board;
+    }
+
+    /**
+     *This method sets the Board entity.
+     * @param board
+     */
+    public void setBoard(Board board) {
+        this.board =  board;
     }
 }

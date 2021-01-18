@@ -9,12 +9,17 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class JsonReader {
+
+    private static String filePath;
+    public JsonReader(final String filePath) {
+        this.filePath = filePath;
+    }
+
     /**
      * Try to read a json file and return a JSONArray with the read info.
-     * @param filePath
      * @return JSONArray;
      */
-    public static JSONArray jsonArrayFromJsonFile(final String filePath) throws ParseException {
+    public static JSONArray jsonArrayFromJsonFile() throws ParseException {
         try {
             JSONParser jsonParser = new JSONParser();
             FileReader reader = new FileReader(filePath);

@@ -3,9 +3,9 @@ package core.selenium.utils;
 import org.json.simple.parser.ParseException;
 import java.util.Map;
 
-public class JsonUser {
+public class JsonUser extends JsonReader {
 
-    private String jsonPath = "src/main/java/trello/config/json/User.json";
+    private static String jsonPath = "src/main/java/trello/config/json/User.json";
     private static JsonUser environment;
     private Map<String, String> jsonUser;
 
@@ -13,6 +13,7 @@ public class JsonUser {
      * Json User constructor.
      */
     private JsonUser() {
+        super(jsonPath);
         jsonUser = convertToMap();
     }
 
@@ -33,7 +34,7 @@ public class JsonUser {
      */
     private Map<String, String> convertToMap() {
         try {
-            return (Map<String,String>)JsonReader.jsonArrayFromJsonFile(jsonPath).get(0);
+            return (Map<String,String>)JsonReader.jsonArrayFromJsonFile().get(0);
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
