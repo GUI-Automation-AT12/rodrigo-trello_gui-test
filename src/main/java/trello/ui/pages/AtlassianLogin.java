@@ -1,6 +1,7 @@
 package trello.ui.pages;
 
 import core.selenium.config.EnvironmentProperties;
+import core.selenium.utils.JsonUser;
 import core.selenium.utils.WebDriverHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,16 +17,12 @@ public class AtlassianLogin extends InitialPage{
         WebDriverHelper.waitUntil(loginSubmit);
     }
 
-    @Override
-    protected void waitForElement(WebElement webElement) {
-
-    }
 
     /**
      * Set password
      */
     public void setPassword(){
-        WebDriverHelper.setElement(password, EnvironmentProperties.getInstance().getPassword());
+        WebDriverHelper.setElement(password, JsonUser.getInstance().getPassword());
     }
 
     /**

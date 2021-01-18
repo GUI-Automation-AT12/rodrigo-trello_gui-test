@@ -2,6 +2,7 @@ package trello.ui.pages;
 
 import core.selenium.WebDriverManager;
 import core.selenium.config.EnvironmentProperties;
+import core.selenium.utils.JsonUser;
 import core.selenium.utils.WebDriverHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,9 +20,9 @@ public class Login extends InitialPage{
     WebElement loginButton;
 
     public Login() {
-        WebDriverManager.getInstance().getWebDriver().navigate().to("https://trello.com/");
+        WebDriverManager.getInstance().getWebDriver().navigate().to(EnvironmentProperties.getInstance().getBaseUrl());
         PageTransporter.navigateToPage("login");
-        setUser();
+        setEmail();
         setPassword();
         tryLogin();
     }
@@ -29,15 +30,15 @@ public class Login extends InitialPage{
     /**
      * Set user
      */
-    public void setUser(){
-        WebDriverHelper.setElement(user, EnvironmentProperties.getInstance().getUsername());
+    public void setEmail(){
+        WebDriverHelper.setElement(user, JsonUser.getInstance().getEmail());
     }
 
     /**
      * Set password
      */
     public void setPassword(){
-        WebDriverHelper.setElement(password, EnvironmentProperties.getInstance().getPassword());
+        WebDriverHelper.setElement(password, JsonUser.getInstance().getPassword());
     }
 
     /**
@@ -47,8 +48,4 @@ public class Login extends InitialPage{
         WebDriverHelper.clickElement(loginButton);
     }
 
-    @Override
-    protected void waitForElement(WebElement webElement) {
-
-    }
 }

@@ -1,6 +1,8 @@
 package trello.entities;
 
 import trello.ui.StringUtils;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Board {
 
@@ -56,4 +58,25 @@ public class Board {
         this.privacy = privacy;
     }
 
+    /**
+     * Process user's information as a map.
+     * @param boardInformation
+     */
+    public void processInformation(final Map<String, String> boardInformation) {
+        HashMap<String, Runnable> strategyMap = composeStrategySetter(boardInformation);
+        boardInformation.keySet().forEach(key -> strategyMap.get(key).run());
+    }
+
+    /**
+     * Compose a strategy map.
+     * @param boardInformation
+     * @return a map of strategyMap
+     */
+    private HashMap<String, Runnable> composeStrategySetter(final Map<String, String> boardInformation) {
+        HashMap<String, Runnable> strategyMap = new HashMap<>();
+        strategyMap.put("Name", () -> setName(boardInformation.get("Name")));
+        strategyMap.put("Team", () -> setTeam(boardInformation.get("Team")));
+        strategyMap.put("Privacy", () -> setPrivacy(boardInformation.get("Privacy")));
+        return strategyMap;
+    }
 }

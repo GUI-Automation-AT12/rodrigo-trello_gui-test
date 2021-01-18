@@ -14,7 +14,7 @@ public class FactoryBrowserDriver {
         Map<String,IDriver> factory = new HashMap<>();
         factory.put(FIREFOX.toString(), new FirefoxBrowserDriver());
         factory.put(CHROME.toString(), new ChromeBrowserDriver());
-        factory.put(EDGE.toString(), new ChromeBrowserDriver());
+        factory.put(EDGE.toString(), new EdgeBrowserDriver());
         return factory.get(EnvironmentProperties.getInstance().getBrowser()).initDriver();
     }
 }

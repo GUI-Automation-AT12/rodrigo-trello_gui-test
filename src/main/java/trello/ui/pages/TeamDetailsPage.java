@@ -1,51 +1,65 @@
 package trello.ui.pages;
 
 import core.selenium.utils.WebDriverHelper;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import trello.ui.components.EditTeamForm;
 
-public class TeamDetailsPage {
+public class TeamDetailsPage extends InitialPage{
 
-    @FindBy( id = "displayName")
-    WebElement name;
+    @FindBy(css = "div[class=\"js-current-details\"] .js-react-root button")
+    WebElement editButton;
+    private EditTeamForm editTeamForm;
+    private WebElement teamName;
+    private WebElement teamDescription;
+    private String teamNamePath = "//h1[contains(text(),'%s')]";
+    private String teamDescriptionPath = "//*[contains(text(),'%s')]";
 
-    @FindBy(id = "name")
-    WebElement shortName;
-
-    @FindBy(id = "website")
-    WebElement website;
-
-    @FindBy(id = "desc")
-    WebElement desc;
-
+    /**
+     * Team details page constructor.
+     */
     public TeamDetailsPage() {
+        editTeamForm = new EditTeamForm();
+        WebDriverHelper.waitUntil(editButton);
+    }
+
+    public void clickEditTeam() {
+        WebDriverHelper.clickElement(editButton);
+    }
+    /**
+     *
+     * @param teamName
+     */
+    public void findTeamName(final String teamName) {
+       this.teamName = WebDriverHelper.searchElement(By.xpath(String.format(this.teamNamePath, teamName)));
     }
 
     /**
-     * set name.
+     *
+     * @return
      */
-    private void setName(final String givenName){
-        WebDriverHelper.setElement(name, givenName);
+    public String getTeamName() {
+        return WebDriverHelper.getTextElement(this.teamName);
     }
 
     /**
-     * set short name.
+     *
+     * @param teamDescription
      */
-    private void setShortName(final String shortName){
-        WebDriverHelper.setElement(this.shortName, shortName);
+    public void findTeamDescription( String teamDescription) {
+        this.teamDescription = WebDriverHelper.searchElement(By.xpath(String.format(this.teamDescriptionPath, teamDescription)));
     }
 
     /**
-     * set website.
+     *
      */
-    private void setWebsite(final String website){
-        WebDriverHelper.setElement(this.website, website);
+    public String getTeamDescription() {
+        return WebDriverHelper.getTextElement(this.teamDescription);
     }
 
-    /**
-     * set description.
-     */
-    private void setDesc(final String description){
-        WebDriverHelper.setElement(desc, description);
+    public EditTeamForm getEditForm() {
+        return this.editTeamForm;
     }
+
 }

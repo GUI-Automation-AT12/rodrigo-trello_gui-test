@@ -12,7 +12,7 @@ public class IdGenerator {
 
     public IdGenerator() {
         hour = new SimpleDateFormat("HHmmss");
-        calendarDay = new SimpleDateFormat("dd-MM-yyyy");
+        calendarDay = new SimpleDateFormat("ddMMyyyy");
     }
 
     /**
@@ -21,6 +21,6 @@ public class IdGenerator {
      */
     public String getGeneratedId() {
         actualDate = new Date();
-        return calendarDay.format(actualDate) + hour.format(calendarDay);
+        return calendarDay.format(actualDate) + hour.format(actualDate);
     }
 }

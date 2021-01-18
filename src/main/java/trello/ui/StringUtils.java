@@ -29,4 +29,15 @@ public final class StringUtils {
         String slug = NON_LATIN.matcher(normalized).replaceAll(EMPTY_STRING);
         return slug.toLowerCase(Locale.ENGLISH);
     }
+
+    /**
+     * This method get the Id from the url.
+     * @param url
+     * @return the url id.
+     */
+    public static String getUrlId(String url) {
+       String [] urlSplit= url.split("/");
+       return urlSplit[urlSplit.length-1];
+    }
+
 }

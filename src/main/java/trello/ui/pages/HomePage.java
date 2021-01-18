@@ -19,14 +19,11 @@ public class HomePage extends InitialPage{
     @FindBy(css = "div#content button[data-test-id='home-navigation-create-team-button']")
     WebElement createTeamButton;
 
+    @FindBy(css = "div[class='board-tile mod-add']")
+    WebElement addBoard;
 
     public HomePage() {
         WebDriverHelper.waitUntil(createTeamButton);
-    }
-
-    @Override
-    protected void waitForElement(WebElement webElement) {
-
     }
 
     /**
@@ -55,5 +52,9 @@ public class HomePage extends InitialPage{
      */
     public void clickCreateTeam() {
         WebDriverHelper.clickElement(createTeamButton);
+    }
+
+    public void clickAddBoard() {
+        WebDriverHelper.clickElement(addBoard);
     }
 }

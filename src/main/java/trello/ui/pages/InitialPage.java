@@ -21,8 +21,6 @@ public abstract class InitialPage {
         PageFactory.initElements(this.webDriver, this);
     }
 
-    protected abstract void waitForElement(final WebElement webElement);
-
     public void openLogin() {
         WebDriverHelper.clickElement(loginButton);
     }
